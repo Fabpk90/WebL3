@@ -6,11 +6,11 @@
  * Time: 13:44
  **/
 
-    function getRecette()
+    function getRecentRecette($nbRecent)
     {
         global $db;
 
-        $query = "select nom, duree, description from Recette order by datePoste desc limit 5 ";
+        $query = "select nom, duree, description from Recette order by datePoste desc limit ".$nbRecent;
         $res = $db->query($query);
 
         return $res;

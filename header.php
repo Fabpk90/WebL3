@@ -23,15 +23,15 @@ if(!isset($_SESSION['admLevel']))
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<ul>
+<ul id="head">
     <li><a href="index.php">Home</a></li>
     <li><a href="search.php">Rechercher une recette</a></li>
-
     <?php
     if(isset($_SESSION['name']))
     {?>
         <li><a href="add.php">Ajouter une recette</a></li>
         <li><a href="login.php">Déconnexion</a></li>
+
 
     <?php
     }

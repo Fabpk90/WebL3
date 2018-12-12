@@ -2,7 +2,7 @@
 include ("db_link.php");
 include ("index_query.php");
 
-$recettes = getRecette();
+$recettes = getRecentRecette(5);
 ?>
 
 <table id="index_recette">

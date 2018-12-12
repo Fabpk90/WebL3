@@ -6,7 +6,13 @@ body
     margin-right: 5%;
 }
 
-ul
+a
+{
+
+    text-decoration: none;
+}
+
+#head
 {
     text-align: center;
     background-color: #817F82;
@@ -17,24 +23,19 @@ ul
     margin-right: 5%;
 }
 
-li
+#head li
 {
     display: inline;
 }
 
-a
+#head li a
 {
+    width: 60px;
+    padding: 14px 16px;
     color: #95D9DA;
 }
 
-li a
-{
-    text-decoration: none;
-    width: 60px;
-    padding: 14px 16px;
-}
-
-li a:hover
+#head li a:hover
 {
     background-color: #6DD6DA;
     color: white;
@@ -49,9 +50,14 @@ form
 {
     text-align: center;
 }
+
+table a
+{
+
+}
+
 /* TODO: left align the content */
 #index_recette
 {
     margin-right: 75%;
-    float: left;
 }

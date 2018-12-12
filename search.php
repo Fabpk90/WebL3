@@ -1,3 +1,43 @@
-<?php include("header.php") ?>
+<?php include("header.php");
+include ("db_link.php");
+include ("search_query.php");
+
+?>
+
+    <form method="get">
+        <label id="name">Nom de la recette à cherchée</label><br/>
+        <input type="text" name="name" id="name"/> <br/>
+        <button type="submit">Rechercher les recettes</button>
+
+    </form>
+
+<?php
+if(isset($_GET['name']))
+{
+    $recetteSearch = getRecetteByName(htmlspecialchars(urlencode($_GET['name'])));
+
+    echo "<table align='center'>";
+    ?>
+
+    <tr>
+        <th>Nom de la recette</th>
+        <th>Description</th>
+    </tr>
+
+    <?php
+
+    while($recette = $recetteSearch->fetch_assoc())
+    {
+        echo "<tr>";
+            echo "<td><a href='recette.php?name=".urlencode($recette['nom'])."'/>";
+            echo $recette['nom']."</td>";
+            echo "<td>".$recette['description']."... </td>";
+        echo "</tr>";
+    }
+
+    echo "</table>";
+}
+
+?>
 
 <?php include("footer.php");?>
