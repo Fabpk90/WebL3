@@ -1,0 +1,57 @@
+body
+{
+    background-color: #C8D5B9;
+
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+ul
+{
+    text-align: center;
+    background-color: #817F82;
+    list-style-type: none;
+    padding: 10px;
+
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+li
+{
+    display: inline;
+}
+
+a
+{
+    color: #95D9DA;
+}
+
+li a
+{
+    text-decoration: none;
+    width: 60px;
+    padding: 14px 16px;
+}
+
+li a:hover
+{
+    background-color: #6DD6DA;
+    color: white;
+}
+
+footer
+{
+    text-align: center;
+}
+
+form
+{
+    text-align: center;
+}
+/* TODO: left align the content */
+#index_recette
+{
+    margin-right: 75%;
+    float: left;
+}
