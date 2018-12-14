@@ -6,6 +6,12 @@
  * Time: 17:07
  */
 
+/*
+ * TODO: insertion commentaire, inscription, insertion recette, insertion type/ingredient
+ */
+
+
+
 session_start();
 
 if(!isset($_SESSION['admLevel']))
@@ -24,7 +30,7 @@ if(!isset($_SESSION['admLevel']))
 </head>
 <body>
 <ul id="head">
-    <li><a href="index.php">Home</a></li>
+    <li><a href="index.php">Accueil</a></li>
     <li><a href="search.php">Rechercher une recette</a></li>
     <?php
     if(isset($_SESSION['name']))

@@ -1,10 +1,13 @@
 <?php include("header.php");
-include ("db_link.php");
+include_once ("db_link.php");
 include ("recette_query.php");
+include_once ("comm_query.php");
 
-if(isset($_GET['name']))
+
+if (isset($_GET['id'])) // if we came from adding a comm
 {
-    $recette = getRecette(htmlspecialchars(urldecode($_GET['name'])));
+    $recetteId = $_GET['id'];
+    $recette = getRecette($recetteId);
 
     if($recette == null)
     {
@@ -15,9 +18,9 @@ if(isset($_GET['name']))
     {
         $resRecette = $recette->fetch_assoc();
 
-        $ingredients = getIngredients($resRecette['id']);
+        $ingredients = getIngredients($recetteId);
 
-        echo "<h3>".$resRecette['nom']."</h3>";
+        echo "<h2>".$resRecette['nom']."</h2>";
         echo "<br/>";
 
         echo "Ingredients: ";
@@ -25,8 +28,8 @@ if(isset($_GET['name']))
         while($ing = $ingredients->fetch_assoc())
         {
             echo "<li>";
-            echo $ing['nom']."  ";
-            echo $ing['qte'];
+            echo $ing['qte']."x ";
+            echo $ing['nom'];
             echo "</li>";
         }
 
@@ -35,7 +38,7 @@ if(isset($_GET['name']))
 
         $ingredients->free();
 
-        $Comm = getComm($resRecette['id']);
+        $Comm = getComm($recetteId);
 
         echo "Commentaires: <br/>";
 
@@ -47,10 +50,23 @@ if(isset($_GET['name']))
         }
 
         $Comm->free();
+
+
+        if($_SESSION['admLevel'] > 0)
+        {?>
+            <form action="comm.php" method="post">
+                <input type="hidden" value="<?php echo $recetteId ?>" name="recetteId"/>
+                <label id="name">Contenu du commentaire:</label><br/>
+                <textarea id="desc" name="desc" rows="5" cols="50"></textarea><br/>
+                <button type="submit">Ajouter un commentaire</button>
+            </form>
+
+
+            <?php
+        }
     }
 
     $recette->free();
-
 }
 else
 {

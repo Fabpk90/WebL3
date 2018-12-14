@@ -29,7 +29,7 @@ if(isset($_GET['name']))
     while($recette = $recetteSearch->fetch_assoc())
     {
         echo "<tr>";
-            echo "<td><a href='recette.php?name=".urlencode($recette['nom'])."'/>";
+            echo "<td><a href='recette.php?id=".$recette['id']."'/>";
             echo $recette['nom']."</td>";
             echo "<td>".$recette['description']."... </td>";
         echo "</tr>";
