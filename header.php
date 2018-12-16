@@ -7,7 +7,7 @@
  */
 
 /*
- * TODO: insertion commentaire, inscription, insertion recette, insertion type/ingredient
+ * TODO: inscription, insertion recette et suppression, insertion type/ingredient (suppression)
  */
 
 
@@ -26,24 +26,25 @@ if(!isset($_SESSION['admLevel']))
 <head>
     <meta charset="UTF-8">
     <title>KitchenCook</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
 <ul id="head">
-    <li><a href="index.php">Accueil</a></li>
-    <li><a href="search.php">Rechercher une recette</a></li>
+    <li><a href="../index/index.php">Accueil</a></li>
+    <li><a href="../recette/search.php">Rechercher une recette</a></li>
     <?php
     if(isset($_SESSION['name']))
     {?>
-        <li><a href="add.php">Ajouter une recette</a></li>
-        <li><a href="login.php">Déconnexion</a></li>
+        <li><a href="../recette/add.php">Ajouter une recette</a></li>
+        <li><a href="../login/logout.php">Déconnexion</a></li>
 
 
     <?php
     }
     else
     {
-        echo ' <li><a href="login.php">Connexion</a></li>';
+        echo ' <li><a href="../login/login.php">Connexion</a></li>';
     }
     ?>
 </ul>

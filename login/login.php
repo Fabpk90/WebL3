@@ -1,7 +1,7 @@
 <?php
-include("header.php");
-include_once ("db_link.php");
-include ("login_query.php");
+include("../header.php");
+include_once("../db_link.php");
+include("login_query.php");
 
 
 if(isset($_POST['name']) && isset($_POST['psw']))
@@ -18,29 +18,22 @@ if(isset($_POST['name']) && isset($_POST['psw']))
         $_SESSION['id'] = $row['id'];
         $_SESSION['name'] = $row['pseudo'];
         $_SESSION['admLevel'] = 1 + $row['isAdmin'];
-        echo "Connexion réussite ".$_SESSION['name'];
+
     }
 
     $res->free();
+
+    header("Location: ../index/index.php");
 }
 else // print the form
-{
-    //before printing, we check if the user is connected, if so disconnect
-
-    if(isset($_SESSION['name']))
-    {
-        session_destroy();
-    }
-
-
-    ?>
+{?>
 
     <form method="post">
         <label id="name">Nom utilisateur</label><br/>
-        <input type="text" name="name" id="name"/><br/>
+        <input type="text" name="name" id="name" required/><br/>
 
         <label id="psw">Mot de passe</label><br/>
-        <input type="password" name="psw" id="psw"/><br/>
+        <input type="password" name="psw" id="psw" required/><br/>
 
         <input type="submit" value="Connexion"/>
     </form>
@@ -50,4 +43,4 @@ else // print the form
 
 ?>
 
-<?php include("footer.php");?>
+<?php include("../footer.php");?>

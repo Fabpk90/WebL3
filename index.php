@@ -1,28 +1,11 @@
-<?php include("header.php");
-include ("db_link.php");
-include ("index_query.php");
-
-$recettes = getRecentRecette(5);
-?>
-
-<table id="index_recette">
-    <tr>
-        <th>Nom</th>
-        <th>Description</th>
-        <th>Durée</th>
-    </tr>
 <?php
-while ($row = $recettes->fetch_assoc())
-{
-    echo "<tr>";
-        echo "<td><b>".$row['nom']."</b></td>";
-        echo "<td>".$row['description']."</td>";
-        echo "<td>".$row['duree']."</td>";
-    echo "</tr>";
-}
-echo "</table>";
+/**
+ * Created by PhpStorm.
+ * User: fab
+ * Date: 16/12/18
+ * Time: 17:34
+ */
+
+header("Location: index/index.php");
+
 ?>
-
-    <p>test</p>
-
-<?php include("footer.php");?>

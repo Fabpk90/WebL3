@@ -1,12 +1,12 @@
-<?php include("header.php");
-include_once ("db_link.php");
-include ("recette_query.php");
-include_once ("comm_query.php");
+<?php include("../header.php");
+include_once("../db_link.php");
+include("recette_query.php");
+include_once("../comm/comm_query.php");
 
 
-if (isset($_GET['id'])) // if we came from adding a comm
+if (isset($_GET['recetteId'])) // if we came from adding a comm
 {
-    $recetteId = $_GET['id'];
+    $recetteId = $_GET['recetteId'];
     $recette = getRecette($recetteId);
 
     if($recette == null)
@@ -45,6 +45,16 @@ if (isset($_GET['id'])) // if we came from adding a comm
         while($com = $Comm->fetch_assoc())
         {
             echo "<b>".$com['pseudo']."</b> le ".$com['date']." <br/>";
+
+            if(isset($_SESSION['id']))
+            {
+                if($com['userId'] == $_SESSION['id'] || $_SESSION['admLevel'] == 2)
+                {
+                    echo '<a href="../comm/comm.php?userId='.$com['userId'].'&recetteId='.$com['recetteId'].'">Supprimer le commentaire </a>';
+                }
+            }
+            echo "<br/>";
+
             echo $com['description'];
             echo "<br/>";
         }
@@ -54,10 +64,10 @@ if (isset($_GET['id'])) // if we came from adding a comm
 
         if($_SESSION['admLevel'] > 0)
         {?>
-            <form action="comm.php" method="post">
+            <form action="../comm/comm.php" method="post">
                 <input type="hidden" value="<?php echo $recetteId ?>" name="recetteId"/>
                 <label id="name">Contenu du commentaire:</label><br/>
-                <textarea id="desc" name="desc" rows="5" cols="50"></textarea><br/>
+                <textarea id="desc" name="desc" rows="5" style="width: 100%;"></textarea><br/>
                 <button type="submit">Ajouter un commentaire</button>
             </form>
 
@@ -75,4 +85,4 @@ else
 
 ?>
 
-<?php include("footer.php");?>
+<?php include("../footer.php");?>
