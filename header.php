@@ -7,7 +7,7 @@
  */
 
 /*
- * TODO: inscription, insertion recette et suppression, insertion type/ingredient (suppression)
+ * TODO: insertion recette et suppression, insertion type/ingredient (suppression), utiliser les vues
  */
 
 
@@ -45,6 +45,7 @@ if(!isset($_SESSION['admLevel']))
     else
     {
         echo ' <li><a href="../login/login.php">Connexion</a></li>';
+        echo ' <li><a href="../login/signup.php">Inscription</a></li>';
     }
     ?>
 </ul>

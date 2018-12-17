@@ -15,10 +15,8 @@ if(isset($_POST['name']) && isset($_POST['psw']))
     }
     else
     {
-        $_SESSION['id'] = $row['id'];
-        $_SESSION['name'] = $row['pseudo'];
+        $_SESSION['id'] = $row['pseudo'];
         $_SESSION['admLevel'] = 1 + $row['isAdmin'];
-
     }
 
     $res->free();

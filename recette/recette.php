@@ -44,13 +44,13 @@ if (isset($_GET['recetteId'])) // if we came from adding a comm
 
         while($com = $Comm->fetch_assoc())
         {
-            echo "<b>".$com['pseudo']."</b> le ".$com['date']." <br/>";
+            echo "<b>".$com['pseudo']."</b> le ".$com['date'];
 
             if(isset($_SESSION['id']))
             {
-                if($com['userId'] == $_SESSION['id'] || $_SESSION['admLevel'] == 2)
+                if($com['pseudo'] == $_SESSION['id'] || $_SESSION['admLevel'] == 2)
                 {
-                    echo '<a href="../comm/comm.php?userId='.$com['userId'].'&recetteId='.$com['recetteId'].'">Supprimer le commentaire </a>';
+                    echo '<a href="../comm/comm.php?userId='.$com['pseudo'].'&recetteId='.$com['recetteId'].'">Supprimer le commentaire </a>';
                 }
             }
             echo "<br/>";
