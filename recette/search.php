@@ -5,7 +5,7 @@ include("search_query.php");
 ?>
 
     <form method="get">
-        <label id="name">Nom de la recette à cherchée</label><br/>
+        <label for="name">Nom de la recette à cherchée</label><br/>
         <input type="text" name="name" id="name"/> <br/>
         <button type="submit">Rechercher les recettes</button>
 

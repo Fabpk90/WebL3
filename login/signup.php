@@ -24,9 +24,9 @@ if(isset($_POST['name']) && isset($_POST['psw']))
 else
 {?>
     <form method="post">
-        <label id="name">Pseudo: </label>
+        <label for="name">Pseudo: </label>
         <input type="text" id="name" name="name" required><br/>
-        <label id="name">Mot de passe: </label>
+        <label for="name">Mot de passe: </label>
         <input type="password" id="psw" name="psw"><br/>
         <button type="submit">S'inscrire</button>
     </form>

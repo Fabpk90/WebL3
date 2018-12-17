@@ -27,10 +27,10 @@ else // print the form
 {?>
 
     <form method="post">
-        <label id="name">Nom utilisateur</label><br/>
+        <label for="name">Nom utilisateur</label><br/>
         <input type="text" name="name" id="name" required/><br/>
 
-        <label id="psw">Mot de passe</label><br/>
+        <label for="psw">Mot de passe</label><br/>
         <input type="password" name="psw" id="psw" required/><br/>
 
         <input type="submit" value="Connexion"/>

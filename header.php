@@ -7,7 +7,7 @@
  */
 
 /*
- * TODO: insertion recette et suppression, insertion type/ingredient (suppression), utiliser les vues
+ * TODO: insertion recette et suppression et modif, insertion type/ingredient (suppression, modif), utiliser les vues
  */
 
 
@@ -34,7 +34,7 @@ if(!isset($_SESSION['admLevel']))
     <li><a href="../index/index.php">Accueil</a></li>
     <li><a href="../recette/search.php">Rechercher une recette</a></li>
     <?php
-    if(isset($_SESSION['name']))
+    if(isset($_SESSION['id']))
     {?>
         <li><a href="../recette/add.php">Ajouter une recette</a></li>
         <li><a href="../login/logout.php">Déconnexion</a></li>

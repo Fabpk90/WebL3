@@ -66,7 +66,7 @@ if (isset($_GET['recetteId'])) // if we came from adding a comm
         {?>
             <form action="../comm/comm.php" method="post">
                 <input type="hidden" value="<?php echo $recetteId ?>" name="recetteId"/>
-                <label id="name">Contenu du commentaire:</label><br/>
+                <label for="name">Contenu du commentaire:</label><br/>
                 <textarea id="desc" name="desc" rows="5" style="width: 100%;"></textarea><br/>
                 <button type="submit">Ajouter un commentaire</button>
             </form>
