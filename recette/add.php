@@ -14,21 +14,17 @@ if(isset($_POST['name']))
 
     $uploaddir = '/opt/lampp/htdocs/KitchenCook/img/';
     $cleanName = str_replace(" ", "", $_POST['name']);
-    $uploadfile = $uploaddir . $cleanName.".".$ext;
+
 
     if (in_array($ext, $supported_image))
     {
-        if (move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile))
-        {
-            $id = insertRecette($_POST['name'], $_POST['desc'], $_SESSION['id'], $_POST['duration'], $cleanName, $ext);
-            if($id)
-            {
-                echo "Recette ajoutée!";
-                echo '<a href="recette.php?recetteId='.$id.'">Aller la voir</a>';
-            }
-        } else {
-            echo "Image pour la recette non valide \n";
+        $id = insertRecette($_POST['name'], $_POST['desc'], $_SESSION['id'], $_POST['duration'], $cleanName, $ext);
+        if ($id) {
+            echo "Recette ajoutée! ";
+            echo '<a href="recette.php?recetteId=' . $id . '">Aller la voir</a>';
         }
+        $filepath = $uploaddir . $cleanName . $id . "." . $ext;
+        move_uploaded_file($_FILES['photo']['tmp_name'], $filepath);
     }
     else {
         echo "Extension de l'image non supportée \n";
@@ -48,7 +44,7 @@ else
         <br/>
 
         <label for="duration">Durée de la recette: </label>
-        <input type="number" min="1" max="360" name="duration" id="duration" required>
+        <input type="number" min="1" max="360" name="duration" id="duration" required> mins
         <br/>
 
         <label for="photo">Image de la recette</label>

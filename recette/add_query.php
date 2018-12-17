@@ -10,9 +10,10 @@ function insertRecette($name, $desc, $userId, $duration, $path, $ext)
 {
     global $db;
 
-    $query = "insert into Recette(nom, description, auteur, duree, photoPath, datePoste)
-              values('".$name."','".htmlspecialchars($desc)."', '".$userId."', ".$duration.", '', DATE(NOW()))";
-    $isInsertOk = $db->query($query);
+    $query = 'insert into Recette(nom, description, auteur, duree, photoPath, datePoste)
+              values("'.$name.'","'.htmlspecialchars($desc).'", "'.$userId.'", '.$duration.', "", DATE(NOW()))';
+
+    $isInsertOk = $db->query($query) or die($db->error);
 
     if($isInsertOk)
     {

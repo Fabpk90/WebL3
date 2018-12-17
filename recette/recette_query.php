@@ -10,7 +10,7 @@ function getRecette($id)
 {
     global $db;
 
-    $query = "select nom, description, duree from Recette where id ='".$id."'";
+    $query = "select * from Recette where id ='".$id."'";
 
     $res = $db->query($query) or die($db->error);
     return $res;

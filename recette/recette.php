@@ -23,6 +23,13 @@ if (isset($_GET['recetteId'])) // if we came from adding a comm
         echo "<h2>".$resRecette['nom']."</h2>";
         echo "<br/>";
 
+        if($resRecette['photoPath'] != "")
+        {
+            echo "<img src='../img/".$resRecette['photoPath']."'/><br/>";
+        }
+
+        echo "Durée de la recette: ".$resRecette['duree']." mins";
+
         echo "Ingredients: ";
         echo "<ul>";
         while($ing = $ingredients->fetch_assoc())
