@@ -43,6 +43,7 @@ if (isset($_GET['recetteId'])) // if we came from adding a comm
             echo "<li>";
             echo $ing['qte']."x ";
             echo $ing['nom'];
+            echo '<a href="delete_compose.php?recetteId='.$resRecette['id'].'&ingredientId='.$ing['nom'].'">Supprimer l\'ingredient</a>';
             echo "</li>";
         }
 

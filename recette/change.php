@@ -28,9 +28,11 @@ if(isset($_GET['recetteId']))
         <input type="number" value="<?php echo $resRecette['duree']; ?>" min="1" max="360" name="duration" id="duration" required> mins
         <br/>
 
-        <button type="submit">Ajouter la recette</button>
+        <button type="submit">Modifier la recette</button>
 
     </form>
+
+    <a href="add_compose.php?recetteId=<?php echo $_GET['recetteId'];?>">Ajouter des ingredients</a>
 <?php
 }
 else if(isset($_POST['recetteId']))

@@ -16,4 +16,14 @@ function getAllIngr()
     return $res;
 }
 
+function getIngr($name)
+{
+    global $db;
+
+    $query = 'select * from Ingredient where nom ="'.$name.'" ';
+
+    $res = $db->query($query) or die ($db->error);
+    return $res;
+}
+
 ?>

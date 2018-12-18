@@ -8,7 +8,6 @@ body
 
 a
 {
-
     text-decoration: none;
 }
 
@@ -49,11 +48,6 @@ footer
 form
 {
     text-align: center;
-}
-
-table a
-{
-
 }
 
 /* TODO: left align the content */

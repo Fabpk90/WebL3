@@ -4,31 +4,43 @@ include ("add_query.php");
 
 if(isset($_POST['name']))
 {
-    $supported_image = array(
-        'jpg',
-        'jpeg',
-        'png'
-    );
 
-    $ext = strtolower(pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION));
-
-    $uploaddir = '/opt/lampp/htdocs/KitchenCook/img/';
-    $cleanName = str_replace(" ", "", $_POST['name']);
-
-
-    if (in_array($ext, $supported_image))
+    if($_FILES['photo']['name'] == "")
     {
-        $id = insertRecette($_POST['name'], $_POST['desc'], $_SESSION['id'], $_POST['duration'], $cleanName, $ext);
-        if ($id) {
-            echo "Recette ajoutée! ";
-            echo '<a href="recette.php?recetteId=' . $id . '">Aller la voir</a>';
+        $id = insertRecetteNoImg($_POST['name'], $_POST['desc'], $_SESSION['id'], $_POST['duration']);
+
+        header("Location: add_compose.php?recetteId=".$id);
+    }
+    else
+    {
+
+        $supported_image = array(
+            'jpg',
+            'jpeg',
+            'png'
+        );
+
+        $ext = strtolower(pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION));
+
+        $uploaddir = '/opt/lampp/htdocs/KitchenCook/img/';
+        $cleanName = str_replace(" ", "", $_POST['name']);
+
+
+        if (in_array($ext, $supported_image))
+        {
+            $id = insertRecette($_POST['name'], $_POST['desc'], $_SESSION['id'], $_POST['duration'], $cleanName, $ext);
+            if ($id) {
+                header("Location: add_compose.php?recetteId=".$id);
+            }
+            $filepath = $uploaddir . $cleanName . $id . "." . $ext;
+            move_uploaded_file($_FILES['photo']['tmp_name'], $filepath);
         }
-        $filepath = $uploaddir . $cleanName . $id . "." . $ext;
-        move_uploaded_file($_FILES['photo']['tmp_name'], $filepath);
+        else {
+            echo "Extension de l'image non supportée \n";
+        }
     }
-    else {
-        echo "Extension de l'image non supportée \n";
-    }
+
+
 }
 else
 {?>
@@ -48,7 +60,7 @@ else
         <br/>
 
         <label for="photo">Image de la recette</label>
-        <input type="file" name="photo" required/>
+        <input type="file" name="photo"/>
         <br/>
 
         <button type="submit">Ajouter la recette</button>

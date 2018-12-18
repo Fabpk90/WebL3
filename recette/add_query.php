@@ -33,4 +33,19 @@ function insertRecette($name, $desc, $userId, $duration, $path, $ext)
     return false;
 }
 
+function insertRecetteNoImg($name, $desc, $userId, $duration)
+{
+    global $db;
+
+    $query = 'insert into Recette(nom, description, auteur, duree, photoPath, datePoste)
+              values("'.$name.'","'.htmlspecialchars($desc).'", "'.$userId.'", '.$duration.', "", DATE(NOW()))';
+
+    $db->query($query) or die($db->error);
+
+    $query = "select id from Recette order by id desc limit 1";
+    $id = $db->query($query)->fetch_assoc();
+
+    return $id['id'];
+}
+
 ?>
