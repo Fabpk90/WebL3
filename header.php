@@ -7,7 +7,7 @@
  */
 
 /*
- * TODO: insertion recette et suppression et modif, insertion type/ingredient (suppression, modif), utiliser les vues
+ * TODO:  Recette modif, modifier comm,  type/ingredient (insertion, suppression, modif), utiliser les vues, recherche avancée, modifier la photo de la recette aussi
  */
 
 

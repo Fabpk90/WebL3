@@ -21,6 +21,12 @@ if (isset($_GET['recetteId'])) // if we came from adding a comm
         $ingredients = getIngredients($recetteId);
 
         echo "<h2>".$resRecette['nom']."</h2>";
+        if($_SESSION['admLevel'] == 2 || (isset($_SESSION['id']) && $_SESSION['id'] == $resRecette['auteur']))
+        {
+            echo "<a href='delete.php?recetteId=".$resRecette['id']."'>Supprimer la recette</a><br/>";
+            echo "<a href='change.php?recetteId=".$resRecette['id']."'>Modifier la recette</a><br/>";
+        }
+
         echo "<br/>";
 
         if($resRecette['photoPath'] != "")
@@ -28,7 +34,7 @@ if (isset($_GET['recetteId'])) // if we came from adding a comm
             echo "<img src='../img/".$resRecette['photoPath']."'/><br/>";
         }
 
-        echo "Durée de la recette: ".$resRecette['duree']." mins";
+        echo "Durée de la recette: ".$resRecette['duree']." mins <br/>";
 
         echo "Ingredients: ";
         echo "<ul>";
@@ -57,7 +63,7 @@ if (isset($_GET['recetteId'])) // if we came from adding a comm
             {
                 if($com['pseudo'] == $_SESSION['id'] || $_SESSION['admLevel'] == 2)
                 {
-                    echo '<a href="../comm/comm.php?userId='.$com['pseudo'].'&recetteId='.$com['recetteId'].'">Supprimer le commentaire </a>';
+                    echo '<a href="../comm/comm.php?userId='.$com['pseudo'].'&recetteId='.$com['recetteId'].'&date='.$com['date'].'">Supprimer le commentaire </a>';
                 }
             }
             echo "<br/>";

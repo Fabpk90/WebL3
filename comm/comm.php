@@ -9,7 +9,8 @@
 session_start();
 
 include_once("../db_link.php");
-include("comm_query.php");
+include("delete_query.php");
+include ("add_query.php");
 
 $recetteId = "";
 
@@ -19,7 +20,7 @@ if(isset($_GET['recetteId']) && isset($_GET['userId']))
 
     //check privileges
     if($_SESSION['admLevel'] == 2 || $_SESSION['id'] == $_GET['userId'])
-        deleteComm($_GET['recetteId'], $_GET['userId']);
+        deleteComm($_GET['recetteId'], $_GET['userId'], $_GET['date']);
 }
 else if (isset($_POST['desc']))
 {

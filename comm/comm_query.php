@@ -16,24 +16,4 @@ function getComm($recetteId)
     return $res;
 }
 
-function insertComm($recetteId, $userId, $desc)
-{
-    global $db;
-
-    $query = "INSERT INTO Commentaire VALUES(".$recetteId.", '".$userId."', '".$desc."', DATE(NOW()))";
-
-    echo $query;
-
-    $db->query($query)or die($db->error);
-}
-
-function deleteComm($recetteId, $userId)
-{
-    global $db;
-
-    $query = "delete from Commentaire where idRecette = ".$recetteId." and idUser = '".$userId."'";
-
-    $db->query($query) or die($db->error);
-}
-
 ?>

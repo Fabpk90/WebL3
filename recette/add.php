@@ -48,7 +48,7 @@ else
         <br/>
 
         <label for="photo">Image de la recette</label>
-        <input type="file" name="photo"/>
+        <input type="file" name="photo" required/>
         <br/>
 
         <button type="submit">Ajouter la recette</button>
@@ -59,7 +59,4 @@ else
 <?php
 }
 
-
-?>
-
-<?php include("../footer.php");?>
+include("../footer.php");?>
