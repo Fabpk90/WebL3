@@ -5,6 +5,9 @@ include("index_query.php");
 $recettes = getRecentRecette(5);
 ?>
 
+<h1>Bienvenue !</h1>
+
+<h4>Les recettes les plus recentes</h4>
 <table id="index_recette">
     <tr>
         <th>Nom</th>
@@ -15,14 +18,15 @@ $recettes = getRecentRecette(5);
 while ($row = $recettes->fetch_assoc())
 {
     echo "<tr>";
-        echo "<td><b>".$row['nom']."</b></td>";
-        echo "<td>".$row['description']."</td>";
+        echo "<td><a href='../recette/recette.php?recetteId=".$row['id']."'><b>".$row['nom']."</b></a></td>";
+        echo "<td>".$row['description'];
+        if(strlen($row['description']) > 49)
+            echo "...";
+        echo "</td>";
         echo "<td>".$row['duree']."</td>";
     echo "</tr>";
 }
 echo "</table>";
 ?>
-
-    <p>test</p>
 
 <?php include("../footer.php");?>

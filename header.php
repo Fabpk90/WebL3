@@ -8,7 +8,7 @@
 
 /*
  * TODO:  recherche avancée, modifier la photo de la recette aussi, utiliser les vues, (modif type) (modif ingredients dans recettes)
- * TODO: dropdown menu, check footer in all pages
+ * TODO:  check footer in all pages
  */
 
 

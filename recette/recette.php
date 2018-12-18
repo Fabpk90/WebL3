@@ -43,7 +43,8 @@ if (isset($_GET['recetteId'])) // if we came from adding a comm
             echo "<li>";
             echo $ing['qte']."x ";
             echo $ing['nom'];
-            echo '<a href="delete_compose.php?recetteId='.$resRecette['id'].'&ingredientId='.$ing['nom'].'">Supprimer l\'ingredient</a>';
+            if($_SESSION['admLevel'] == 2 ||(isset($_SESSION['id']) && $_SESSION['id'] == $resRecette['auteur']))
+                echo '<a href="delete_compose.php?recetteId='.$resRecette['id'].'&ingredientId='.$ing['nom'].'">Supprimer l\'ingredient</a>';
             echo "</li>";
         }
 

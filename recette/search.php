@@ -8,8 +8,6 @@ include("search_query.php");
         <label for="name">Nom de la recette à cherchée</label><br/>
         <input type="text" name="name" id="name"/> <br/>
 
-
-
         <button type="submit">Rechercher les recettes</button>
 
     </form>
@@ -40,7 +38,10 @@ if(isset($_GET['name']))
             echo "<tr>";
             echo "<td><a href='recette.php?recetteId=".$recette['id']."'/>";
             echo $recette['nom']."</td>";
-            echo "<td>".$recette['description']."... </td>";
+            echo "<td>".$recette['description'];
+            if(strlen($recette['description']) > 48)
+                echo "...";
+            echo"</td>";
             echo "</tr>";
         }
 

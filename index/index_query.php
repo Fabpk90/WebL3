@@ -10,7 +10,7 @@
     {
         global $db;
 
-        $query = "select nom, duree, description from Recette order by datePoste desc limit ".$nbRecent;
+        $query = "select id, nom, duree, description from Recette order by datePoste desc limit ".$nbRecent;
         $res = $db->query($query);
 
         return $res;
