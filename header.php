@@ -7,8 +7,8 @@
  */
 
 /*
- * TODO: utiliser les vues, recherche avancée, modifier la photo de la recette aussi, (modif type) (modif ingredients dans recettes)
- * check footer in all pages
+ * TODO:  recherche avancée, modifier la photo de la recette aussi, utiliser les vues, (modif type) (modif ingredients dans recettes)
+ * TODO: dropdown menu, check footer in all pages
  */
 
 
@@ -33,28 +33,49 @@ if(!isset($_SESSION['admLevel']))
 <body>
 <ul id="head">
     <li><a href="../index/index.php">Accueil</a></li>
-    <li><a href="../recette/search.php">Rechercher une recette</a></li>
-    <?php
 
+    <?php
     if($_SESSION['admLevel'] == 2)
     {?>
-        <li><a href="../ingr/add_type.php">Ajouter un Type</a></li>
-        <li><a href="../ingr/add.php">Ajouter un Ingredient</a></li>
-        <li><a href="../ingr/delete.php">Supprimer un Ingredient</a></li>
-        <li><a href="../ingr/change.php">Modifier un Ingredient</a></li>
+
+        <div class="dropdown">
+            <button class="dropbtn">Administration</button>
+            <div class="dropdown-content">
+                <a href="../ingr/add_type.php">Ajouter un Type</a>
+                <a href="../ingr/delete_type.php">Supprimer un Type</a>
+                <a href="../ingr/add.php">Ajouter un Ingredient</a>
+                <a href="../ingr/delete.php">Supprimer un Ingredient</a>
+                <a href="../ingr/change.php">Modifier un Ingredient</a>
+            </div>
+        </div>
     <?php
-    }
+    }?>
+
+    <div class="dropdown">
+        <button class="dropbtn">Recette</button>
+        <div class="dropdown-content">
+            <a href="../recette/search.php">Rechercher une recette</a>
+
+    <?php
+
+
 
     if(isset($_SESSION['id']))
     {?>
-        <li><a href="../recette/add.php">Ajouter une recette</a></li>
+        <a href="../recette/add.php">Ajouter une recette</a>
 
+        </div>
+    </div>
         <li><a href="../login/logout.php">Déconnexion</a></li>
-
 
     <?php
     }
-    else
+    ?>
+        </div>
+    </div>
+
+    <?php
+    if(!isset($_SESSION['id']))
     {
         echo ' <li><a href="../login/login.php">Connexion</a></li>';
         echo ' <li><a href="../login/signup.php">Inscription</a></li>';
