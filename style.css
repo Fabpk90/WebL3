@@ -50,10 +50,13 @@ form
     text-align: center;
 }
 
-/* TODO: left align the content */
-#index_recette
+table tr:nth-child(odd) td
 {
-
+    background-color: rgb(241, 255, 225);
+}
+table tr:nth-child(even) td
+{
+    background-color: rgb(173, 173, 173);
 }
 
 
@@ -105,6 +108,6 @@ form
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-    background-color: #6DD6DA;
+    background-color: #0297da;
     color: white;
 }

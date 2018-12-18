@@ -7,7 +7,16 @@ $recettes = getRecentRecette(5);
 
 <h1>Bienvenue !</h1>
 
-<h4>Les recettes les plus recentes</h4>
+<?php
+
+$resMostInsert = getMostInsertRecette()->fetch_assoc();
+
+echo "<h4>L'utilisateur qui a créé le plus de recette ce mois-ci est: ".$resMostInsert['pseudo']."</h4>";
+
+?>
+
+    <h3>Voyons voir les recettes les plus recentes</h3>
+
 <table id="index_recette">
     <tr>
         <th>Nom</th>

@@ -9,22 +9,21 @@ if(isset($_POST['name']) && isset($_POST['psw']))
     $res = login($_POST['name'], $_POST['psw']);
     $row = $res->fetch_assoc();
 
-    if($row == null)
-    {
-        echo "Connexion échouée";
-    }
-    else
+    if($row != null)
     {
         $_SESSION['id'] = $row['pseudo'];
         $_SESSION['admLevel'] = 1 + $row['isAdmin'];
+
+        header("Location: ../index/index.php");
+    }
+    else
+    {
+        echo "Connexion échouée";
     }
 
     $res->free();
-
-    header("Location: ../index/index.php");
 }
-else // print the form
-{?>
+?>
 
     <form method="post">
         <label for="name">Nom utilisateur</label><br/>
@@ -37,7 +36,7 @@ else // print the form
     </form>
 
 <?php
-}
+
 
 ?>
 
