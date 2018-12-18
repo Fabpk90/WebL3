@@ -7,7 +7,8 @@
  */
 
 /*
- * TODO:  Recette modif, modifier comm,  type/ingredient (insertion, suppression, modif), utiliser les vues, recherche avancée, modifier la photo de la recette aussi
+ * TODO: ingredient (modif), ajout ingredients dans recettes, utiliser les vues, recherche avancée, modifier la photo de la recette aussi, (modif type)
+ * check footer in all pages
  */
 
 
@@ -37,6 +38,9 @@ if(!isset($_SESSION['admLevel']))
     if(isset($_SESSION['id']))
     {?>
         <li><a href="../recette/add.php">Ajouter une recette</a></li>
+        <li><a href="../ingr/add_type.php">Ajouter un Type</a></li>
+        <li><a href="../ingr/add.php">Ajouter un Ingredient</a></li>
+        <li><a href="../ingr/delete.php">Supprimer un Ingredient</a></li>
         <li><a href="../login/logout.php">Déconnexion</a></li>
 
 

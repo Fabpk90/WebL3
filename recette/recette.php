@@ -63,7 +63,8 @@ if (isset($_GET['recetteId'])) // if we came from adding a comm
             {
                 if($com['pseudo'] == $_SESSION['id'] || $_SESSION['admLevel'] == 2)
                 {
-                    echo '<a href="../comm/comm.php?userId='.$com['pseudo'].'&recetteId='.$com['recetteId'].'&date='.$com['date'].'">Supprimer le commentaire </a>';
+                    echo '<a href="../comm/comm.php?userId='.$com['pseudo'].'&recetteId='.$com['recetteId'].'">Supprimer le commentaire </a>';
+                    echo '<a href="../comm/change.php?userId='.$com['pseudo'].'&recetteId='.$com['recetteId'].'&date='.$com['date'].'">Modifier le commentaire </a>';
                 }
             }
             echo "<br/>";

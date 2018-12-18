@@ -15,4 +15,19 @@ function deleteAllIngrFromRecette($recetteId)
     $db->query($query) or die($db->error);
 }
 
+function deleteIngr($name)
+{
+    global $db;
+
+    //we delete all the entries of compose where the ingredient is used
+    //then we delete it
+
+    $query = 'delete from Compose where idIngredient="'.$name.'"';
+
+    $db->query($query) or die($db->error);
+
+    $query = 'delete from Ingredient where nom="'.$name.'"';
+    $db->query($query) or die($db->error);
+}
+
 ?>
