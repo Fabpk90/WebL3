@@ -16,7 +16,7 @@ include ("ingr_query.php");
 
 if(isset($_POST['desc']))//modification to be done
 {
-    changeIngr($_POST['oldName'], $_POST['name'],$_POST['desc'], $_POST['idCat']);
+    changeIngr($_POST['name'],$_POST['desc'], $_POST['idCat']);
     echo "Ingredient changé";
 }
 elseif(isset($_POST['name'])) // we show the form to modifiy
@@ -25,9 +25,11 @@ elseif(isset($_POST['name'])) // we show the form to modifiy
 
     ?>
      <form method="post">
-         <input type="hidden" name="oldName" value="<?php echo $resIngr['nom']; ?>" >
+         <!--<input type="hidden" name="oldName" value="<?php echo $resIngr['nom']; ?>" >
         <label for="name">Nom de l'ingredient</label>
-        <input type="text" id="name" name="name" value="<?php echo $resIngr['nom']; ?>" required><br/>
+        <input type="text" id="name" name="name" value="<?php echo $resIngr['nom']; ?>" required><br/> -->
+
+         <input type="hidden" name="name" value="<?php echo $resIngr['nom']; ?>" >
 
         <label for="idCat">Type de l'ingredient</label>
         <select name="idCat" id="idCat">

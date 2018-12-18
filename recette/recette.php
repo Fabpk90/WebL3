@@ -20,7 +20,7 @@ if (isset($_GET['recetteId'])) // if we came from adding a comm
 
         $ingredients = getIngredients($recetteId);
 
-        echo "<h2>".$resRecette['nom']."</h2>";
+        echo "<h2>".$resRecette['nom']."  par ".$resRecette['auteur']."</h2>";
         if($_SESSION['admLevel'] == 2 || (isset($_SESSION['id']) && $_SESSION['id'] == $resRecette['auteur']))
         {
             echo "<a href='delete.php?recetteId=".$resRecette['id']."'>Supprimer la recette</a><br/>";
@@ -42,7 +42,7 @@ if (isset($_GET['recetteId'])) // if we came from adding a comm
         {
             echo "<li>";
             echo $ing['qte']."x ";
-            echo $ing['nom'];
+            echo '<a href="../ingr/ingr.php?name='.urlencode($ing['nom']).'&recetteId='.$resRecette['id'].'">'.$ing['nom'].'   </a>';
             if($_SESSION['admLevel'] == 2 ||(isset($_SESSION['id']) && $_SESSION['id'] == $resRecette['auteur']))
                 echo '<a href="delete_compose.php?recetteId='.$resRecette['id'].'&ingredientId='.$ing['nom'].'">Supprimer l\'ingredient</a>';
             echo "</li>";

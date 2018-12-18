@@ -11,7 +11,8 @@ $recettes = getRecentRecette(5);
 
 $resMostInsert = getMostInsertRecette()->fetch_assoc();
 
-echo "<h4>L'utilisateur qui a créé le plus de recette ce mois-ci est: ".$resMostInsert['pseudo']."</h4>";
+echo "<h4>L'utilisateur qui a créé le plus de recette ce mois-ci est: ".$resMostInsert['pseudo']." en ayant créer
+ ".$resMostInsert['nbRecette']." recettes!</h4>";
 
 ?>
 

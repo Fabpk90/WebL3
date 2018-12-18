@@ -6,12 +6,22 @@
  * Time: 13:35
  */
 
-function changeIngr($oldName, $name, $desc, $idCat)
+/*function changeIngr($oldName, $name, $desc, $idCat)
 {
     global $db;
 
     $query = 'update Ingredient set nom="'.$name.'", description="'.$desc.'", idCat='.$idCat.'
             where nom="'.$oldName.'"';
+
+    $db->query($query) or die($db->error);
+}*/
+
+function changeIngr($name, $desc, $idCat)
+{
+    global $db;
+
+    $query = 'update Ingredient set description="'.$desc.'", idCat='.$idCat.'
+            where nom="'.$name.'"';
 
     $db->query($query) or die($db->error);
 }
