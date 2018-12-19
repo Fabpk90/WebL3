@@ -8,11 +8,11 @@
 
 //TODO: maybe modify the photo
 
-function changeRecette($recetteId, $desc, $duree)
+function changeRecette($name, $recetteId, $desc, $duree)
 {
     global $db;
 
-    $query = "update Recette set description = '".$desc."', duree = ".$duree." 
+    $query = "update Recette set description = '".$desc."', duree = ".$duree." , nom='".$name."'
                 where id = ".$recetteId;
 
     $db->query($query) or die ($db->error);

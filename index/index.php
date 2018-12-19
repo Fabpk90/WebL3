@@ -14,6 +14,11 @@ $resMostInsert = getMostInsertRecette()->fetch_assoc();
 echo "<h4>L'utilisateur qui a créé le plus de recette ce mois-ci est: ".$resMostInsert['pseudo']." en ayant créer
  ".$resMostInsert['nbRecette']." recettes!</h4>";
 
+$resLongest = getLongestRecette()->fetch_assoc();
+
+echo "Pour ceux qui ont le temps, nous vous conseillons<a href='../recette/recette.php?recetteId=".$resLongest['id']."'> 
+".$resLongest['nom']."</a> qui dure ".$resLongest['duree']." mins";
+
 ?>
 
     <h3>Voyons voir les recettes les plus recentes</h3>

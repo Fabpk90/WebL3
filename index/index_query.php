@@ -38,4 +38,16 @@
 
     }
 
+    function getLongestRecette()
+    {
+        global $db;
+
+        $query = "SELECT *
+                  FROM Recette
+                  WHERE duree = (SELECT MAX(duree) FROM Recette);";
+
+        $res = $db->query($query);
+        return $res;
+    }
+
 ?>

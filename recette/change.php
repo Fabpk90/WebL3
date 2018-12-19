@@ -20,6 +20,9 @@ if(isset($_GET['recetteId']))
 
         <input type="hidden" value="<?php echo $resRecette['id'];  ?>" name="recetteId">
 
+        <label for="name">Nom de la recette</label>
+        <input type="text" name="name" value="<?php echo $resRecette['nom'];?>" id="name"/>
+
         <label for="desc">Description de la recette: </label><br/>
         <textarea name="desc" id="desc" rows="5" style="width: 100%;" required><?php echo $resRecette['description']; ?></textarea>
         <br/>
@@ -37,7 +40,7 @@ if(isset($_GET['recetteId']))
 }
 else if(isset($_POST['recetteId']))
 {
-    changeRecette($_POST['recetteId'], $_POST['desc'], $_POST['duration']);
+    changeRecette($_POST['name'], $_POST['recetteId'], $_POST['desc'], $_POST['duration']);
     echo "Recette modifiée <a href='recette.php?recetteId=".$_POST['recetteId'].".'>Aller la voir</a>";
 }
 
